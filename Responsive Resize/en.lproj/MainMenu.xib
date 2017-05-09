@@ -1,0 +1,459 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
+    <dependencies>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="10117"/>
+        <plugIn identifier="com.apple.WebKitIBPlugin" version="10117"/>
+    </dependencies>
+    <objects>
+        <customObject id="-2" userLabel="File's Owner" customClass="NSApplication">
+            <connections>
+                <outlet property="delegate" destination="494" id="495"/>
+            </connections>
+        </customObject>
+        <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
+        <customObject id="-3" userLabel="Application"/>
+        <menu title="AMainMenu" systemMenu="main" id="29">
+            <items>
+                <menuItem title="Responsive Resize" id="56">
+                    <menu key="submenu" title="Responsive Resize" systemMenu="apple" id="57">
+                        <items>
+                            <menuItem title="About Responsive Resize" id="58">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <connections>
+                                    <action selector="orderFrontStandardAboutPanel:" target="-2" id="142"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem isSeparatorItem="YES" id="236">
+                                <modifierMask key="keyEquivalentModifierMask" command="YES"/>
+                            </menuItem>
+                            <menuItem title="Preferences…" keyEquivalent="," id="869">
+                                <connections>
+                                    <action selector="openPreferences:" target="494" id="870"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="Reset Application…" id="938">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <connections>
+                                    <action selector="resetApplication:" target="494" id="940"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem isSeparatorItem="YES" id="939"/>
+                            <menuItem title="Services" id="131">
+                                <menu key="submenu" title="Services" systemMenu="services" id="130"/>
+                            </menuItem>
+                            <menuItem isSeparatorItem="YES" id="144">
+                                <modifierMask key="keyEquivalentModifierMask" command="YES"/>
+                            </menuItem>
+                            <menuItem title="Hide Responsive Resize" keyEquivalent="h" id="134">
+                                <connections>
+                                    <action selector="hide:" target="-1" id="367"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="Hide Others" keyEquivalent="h" id="145">
+                                <modifierMask key="keyEquivalentModifierMask" option="YES" command="YES"/>
+                                <connections>
+                                    <action selector="hideOtherApplications:" target="-1" id="368"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="Show All" id="150">
+                                <connections>
+                                    <action selector="unhideAllApplications:" target="-1" id="370"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem isSeparatorItem="YES" id="149">
+                                <modifierMask key="keyEquivalentModifierMask" command="YES"/>
+                            </menuItem>
+                            <menuItem title="Quit Responsive Resize" keyEquivalent="q" id="136">
+                                <connections>
+                                    <action selector="terminate:" target="-3" id="449"/>
+                                </connections>
+                            </menuItem>
+                        </items>
+                    </menu>
+                </menuItem>
+                <menuItem title="Edit" id="217">
+                    <menu key="submenu" title="Edit" id="205">
+                        <items>
+                            <menuItem title="Cut" keyEquivalent="x" id="199">
+                                <connections>
+                                    <action selector="cut:" target="-1" id="228"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="Copy" keyEquivalent="c" id="197">
+                                <connections>
+                                    <action selector="copy:" target="-1" id="224"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="Paste" keyEquivalent="v" id="203">
+                                <connections>
+                                    <action selector="paste:" target="-1" id="226"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="Delete" id="202">
+                                <connections>
+                                    <action selector="delete:" target="-1" id="235"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="Select All" keyEquivalent="a" id="198">
+                                <connections>
+                                    <action selector="selectAll:" target="-1" id="232"/>
+                                </connections>
+                            </menuItem>
+                        </items>
+                    </menu>
+                </menuItem>
+                <menuItem title="Cache" id="928">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                    <menu key="submenu" title="Cache" id="929">
+                        <items>
+                            <menuItem title="Empty Cache" keyEquivalent="e" id="932">
+                                <connections>
+                                    <action selector="clearCache:" target="494" id="933"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="Delete Cookies" keyEquivalent="k" id="930">
+                                <connections>
+                                    <action selector="deleteCookies:" target="494" id="931"/>
+                                </connections>
+                            </menuItem>
+                        </items>
+                    </menu>
+                </menuItem>
+                <menuItem title="Devices" id="865">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                    <menu key="submenu" title="Devices" id="866">
+                        <items>
+                            <menuItem title="Add / Remove Devices..." keyEquivalent="d" id="867">
+                                <connections>
+                                    <action selector="openDevices:" target="494" id="877"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem isSeparatorItem="YES" id="871"/>
+                            <menuItem title="Rotate Device" keyEquivalent="r" id="872">
+                                <connections>
+                                    <action selector="rotateDevice:" target="494" id="878"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="Set Custom Device Width…" keyEquivalent="[" id="919">
+                                <connections>
+                                    <action selector="customWidth:" target="494" id="921"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="Set Custom Device Height…" keyEquivalent="]" id="920">
+                                <connections>
+                                    <action selector="customHeight:" target="494" id="922"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="Increase Viewport by Increment" keyEquivalent="+" id="873">
+                                <connections>
+                                    <action selector="increaseViewport:" target="494" id="879"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="Decrease Viewport by Increment" keyEquivalent="-" id="874">
+                                <connections>
+                                    <action selector="decreaseViewport:" target="494" id="880"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem isSeparatorItem="YES" id="884"/>
+                            <menuItem title="Toggle Device Theme" keyEquivalent="t" id="882">
+                                <connections>
+                                    <action selector="toggleTheme:" target="494" id="883"/>
+                                </connections>
+                            </menuItem>
+                        </items>
+                    </menu>
+                </menuItem>
+                <menuItem title="User Agent" id="819">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                    <menu key="submenu" title="User Agent" id="820">
+                        <items>
+                            <menuItem title="Custom User Agent String…" keyEquivalent="C" id="821">
+                                <connections>
+                                    <action selector="customUAString:" target="845" id="848"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem isSeparatorItem="YES" id="823"/>
+                            <menuItem title="Safari" id="888">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <menu key="submenu" title="Safari" id="889">
+                                    <items>
+                                        <menuItem title="Safari 7.0.1 - Mac" id="944">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                            <connections>
+                                                <action selector="safari7Mac:" target="845" id="947"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem title="Safari 6.0.4 - Mac" id="822">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                            <connections>
+                                                <action selector="safari6Mac:" target="845" id="849"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem title="Safari 5.0.3 - Mac" id="824">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                            <connections>
+                                                <action selector="safari5Mac:" target="845" id="850"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem title="Safari 5.1.7 - Windows" id="825">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                            <connections>
+                                                <action selector="safari5Win:" target="845" id="851"/>
+                                            </connections>
+                                        </menuItem>
+                                    </items>
+                                </menu>
+                            </menuItem>
+                            <menuItem title="Chrome" id="891">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <menu key="submenu" title="Chrome" id="892">
+                                    <items>
+                                        <menuItem title="Chrome 26.0.1410.65 - Mac" id="832">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                            <connections>
+                                                <action selector="chrome26Mac:" target="845" id="856"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem title="Chrome 26.0.1410.43 - Windows" id="833">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                            <connections>
+                                                <action selector="chrome26Win:" target="845" id="857"/>
+                                            </connections>
+                                        </menuItem>
+                                    </items>
+                                </menu>
+                            </menuItem>
+                            <menuItem title="Firefox" id="894">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <menu key="submenu" title="Firefox" id="895">
+                                    <items>
+                                        <menuItem title="Firefox 20.0 - Mac" id="835">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                            <connections>
+                                                <action selector="firefox20Mac:" target="845" id="858"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem title="Firefox 23.0 - Windows" id="836">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                            <connections>
+                                                <action selector="firefox23Win:" target="845" id="859"/>
+                                            </connections>
+                                        </menuItem>
+                                    </items>
+                                </menu>
+                            </menuItem>
+                            <menuItem title="Opera" id="907">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <menu key="submenu" title="Opera" id="908">
+                                    <items>
+                                        <menuItem title="Opera 12.15 - Mac" id="838">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                            <connections>
+                                                <action selector="opera12Mac:" target="845" id="860"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem title="Opera 12.5 - Windows" id="839">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                            <connections>
+                                                <action selector="opera12Win:" target="845" id="861"/>
+                                            </connections>
+                                        </menuItem>
+                                    </items>
+                                </menu>
+                            </menuItem>
+                            <menuItem title="Internet Explorer" id="900">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <menu key="submenu" title="Internet Explorer" id="901">
+                                    <items>
+                                        <menuItem title="Internet Explorer 10 - Windows" id="841">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                            <connections>
+                                                <action selector="ie10:" target="845" id="862"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem title="Internet Explorer 9 - Windows" id="842">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                            <connections>
+                                                <action selector="ie9:" target="845" id="863"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem title="Internet Explorer 8 - Windows" id="843">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                            <connections>
+                                                <action selector="ie8:" target="845" id="864"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem title="Internet Explorer 7 - Windows" id="914">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                            <connections>
+                                                <action selector="ie7:" target="845" id="917"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem isSeparatorItem="YES" id="915"/>
+                                        <menuItem title="Internet Explorer 9 - Xbox" id="916">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                            <connections>
+                                                <action selector="ie9xbox:" target="845" id="918"/>
+                                            </connections>
+                                        </menuItem>
+                                    </items>
+                                </menu>
+                            </menuItem>
+                            <menuItem isSeparatorItem="YES" id="903"/>
+                            <menuItem title="Mobile Safari (iOS)" id="904">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <menu key="submenu" title="Mobile Safari (iOS)" id="905">
+                                    <items>
+                                        <menuItem title="iPhone - iOS 7" id="945">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                            <connections>
+                                                <action selector="iPhone7:" target="845" id="948"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem title="iPhone - iOS 6" id="826">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                            <connections>
+                                                <action selector="iPhone6:" target="845" id="852"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem title="iPhone - iOS 5" id="828">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                            <connections>
+                                                <action selector="iPhone5:" target="845" id="853"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem title="iPhone - iOS 4" id="923">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                            <connections>
+                                                <action selector="iPhone4:" target="845" id="925"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem isSeparatorItem="YES" id="911"/>
+                                        <menuItem title="iPad - iOS 7" id="946">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                            <connections>
+                                                <action selector="iPad7:" target="845" id="949"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem title="iPad - iOS 6" id="829">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                            <connections>
+                                                <action selector="iPad6:" target="845" id="854"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem title="iPad - iOS 5" id="830">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                            <connections>
+                                                <action selector="iPad5:" target="845" id="855"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem title="iPad - iOS 4" id="924">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                            <connections>
+                                                <action selector="iPad4:" target="845" id="926"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem isSeparatorItem="YES" id="912"/>
+                                        <menuItem title="iPod Touch - iOS 5" id="910">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                            <connections>
+                                                <action selector="iPodTouch5:" target="845" id="913"/>
+                                            </connections>
+                                        </menuItem>
+                                    </items>
+                                </menu>
+                            </menuItem>
+                        </items>
+                    </menu>
+                </menuItem>
+                <menuItem title="Window" id="19">
+                    <menu key="submenu" title="Window" systemMenu="window" id="24">
+                        <items>
+                            <menuItem title="Minimize" keyEquivalent="m" id="23">
+                                <connections>
+                                    <action selector="performMiniaturize:" target="-1" id="37"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="Zoom" id="239">
+                                <connections>
+                                    <action selector="performZoom:" target="-1" id="240"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem isSeparatorItem="YES" id="92">
+                                <modifierMask key="keyEquivalentModifierMask" command="YES"/>
+                            </menuItem>
+                            <menuItem title="Bring All to Front" id="5">
+                                <connections>
+                                    <action selector="arrangeInFront:" target="-1" id="39"/>
+                                </connections>
+                            </menuItem>
+                        </items>
+                    </menu>
+                </menuItem>
+                <menuItem title="Help" id="490">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                    <menu key="submenu" title="Help" systemMenu="help" id="491">
+                        <items>
+                            <menuItem title="Responsive Resize Help" keyEquivalent="?" id="492">
+                                <connections>
+                                    <action selector="showHelp:" target="-1" id="493"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem isSeparatorItem="YES" id="936"/>
+                            <menuItem title="Suggest a Device or User Agent…" id="941">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <connections>
+                                    <action selector="suggestDevice:" target="494" id="942"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem isSeparatorItem="YES" id="943"/>
+                            <menuItem title="www.responsive-resize.com" id="935">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <connections>
+                                    <action selector="openResponsiveResizeSite:" target="494" id="937"/>
+                                </connections>
+                            </menuItem>
+                        </items>
+                    </menu>
+                </menuItem>
+            </items>
+            <connections>
+                <outlet property="delegate" destination="494" id="740"/>
+            </connections>
+        </menu>
+        <window title="Responsive Resize" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" animationBehavior="default" id="371">
+            <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
+            <windowCollectionBehavior key="collectionBehavior" fullScreenPrimary="YES"/>
+            <rect key="contentRect" x="146" y="78" width="1000" height="700"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="1280" height="777"/>
+            <value key="minSize" type="size" width="1000" height="700"/>
+            <view key="contentView" id="372">
+                <rect key="frame" x="0.0" y="0.0" width="1000" height="700"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <webView identifier="browser" translatesAutoresizingMaskIntoConstraints="NO" id="536">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="700"/>
+                        <webPreferences key="preferences" identifier="browser" defaultFontSize="12" defaultFixedFontSize="12"/>
+                    </webView>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="536" firstAttribute="leading" secondItem="372" secondAttribute="leading" id="543"/>
+                    <constraint firstItem="536" firstAttribute="trailing" secondItem="372" secondAttribute="trailing" id="548"/>
+                    <constraint firstItem="536" firstAttribute="top" secondItem="372" secondAttribute="top" id="552"/>
+                    <constraint firstItem="536" firstAttribute="bottom" secondItem="372" secondAttribute="bottom" id="553"/>
+                </constraints>
+            </view>
+            <connections>
+                <outlet property="delegate" destination="494" id="934"/>
+            </connections>
+        </window>
+        <customObject id="494" customClass="AppDelegate">
+            <connections>
+                <outlet property="ResponsiveResize" destination="536" id="670"/>
+            </connections>
+        </customObject>
+        <customObject id="420" customClass="NSFontManager"/>
+        <customObject id="845" customClass="MenuController"/>
+    </objects>
+</document>

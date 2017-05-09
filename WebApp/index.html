@@ -1,0 +1,207 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta http-equiv="cache-control" content="no-cache">
+		<meta http-equiv="Expires" content="0">
+		<!--
+		Copyright (C) 2013 Midwinter Duncan Grant http://www.midwinter-dg.com/
+		Copyright (C) 2013 Duncan Midwinter
+		
+		Responsive Resize makes use of the following resources:
+		jQuery					http://jquery.com
+		jQueryUI				http://jqueryui.com
+		jQuery AlphaNumeric		http://www.shiguenori.com/material/alphanumeric/index.html
+		spin.js  				http://fgnass.github.com/spin.js/
+		jquery.spin.js 			https://gist.github.com/its-florida/1290439
+		IFrame Loader			http://project.ajaxpatterns.org/jquery-iframe
+		UAParser.js				https://github.com/faisalman/ua-parser-js
+		-->
+		<title>Responsive Resize v1.2</title>
+		<link rel="stylesheet" href="css/styles.css" />
+
+		<script src="js/jquery-1.9.1.min.js"></script>
+		<script src="js/jquery-ui-1.10.0.custom.min.js"></script>
+		<script src="js/presets.js"></script>
+		<script src="js/devices.js"></script>
+		<script src="js/main.js"></script>
+	</head>
+	<body>
+		
+		<header>
+			<div id="address-bar">
+				<div id="address-wrapper">
+				
+					<button type="button" id="history" title="History">History</button>
+                    
+					<dl id="history-menu">
+						<dt id="recent-sites">Recent Sites&hellip;</dt>
+						<dt id="history-divider"></dt>
+						<dd data-value="reset">Clear All Recent Sites</dd>
+					</dl>
+					
+					<input type="url" id="url" value="" placeholder="Enter an address…" /> <button class="button" id="load" title="Load URL">Go</button>
+					
+				</div>
+			</div>
+			
+			<div id="buttons"></div>
+			
+		</header>
+		
+		<div class="content">
+			
+			<div id="border">
+				<div id="frame">
+					<iframe src="" id="view" name="view"></iframe>
+				</div>
+			</div>
+		
+		</div>
+		
+		<div id="devices">
+			
+			<div class="col-left">
+			
+				<div class="fieldset clearfix">
+				
+					<h4>Create New Device:</h4>
+					
+					<input type="text" class="alphanumeric" id="custom-man" placeholder="Manufacturer" tabindex="-1" />
+					<input type="text" class="alphanumeric" id="custom-name" placeholder="Device Name" tabindex="-1" />
+					<input type="number" class="numeric" id="custom-width" placeholder="Width" min="100" max="3000" tabindex="-1" />
+					<input type="number" class="numeric" id="custom-height" placeholder="Height" min="100" max="3000" tabindex="-1" />
+					<button type="button" id="add-custom" tabindex="-1">Add Device</button>
+				
+				</div>
+			
+				<div class="fieldset clearfix">
+				
+					<h4>Select Preset Device:</h4>
+					
+					<select id="device-select" tabindex="-1">
+					</select>
+					
+					<button type="button" id="add-preset" tabindex="-1">Add Device</button>
+				
+				</div>
+			
+			</div>
+			
+			<div class="col-right">
+			
+				<div id="device-list-box">
+					
+					<ul id="device-list">
+					</ul>
+					
+				</div>
+				
+				<button type="button" id="device-close" tabindex="-1">Close</button>
+			
+			</div>
+			
+		</div>
+		
+		<footer>
+			<div class="wrapper">
+
+				<button id="prefs" title="Preferences">Preferences</button>
+				
+				<dl id="prefs-menu">
+					<dt>Customize</dt>
+					<dd data-pref="1">Add/Remove Devices&hellip; <span class="shortcut">⌘D</span></dd>
+					<dd data-pref="2">Switch to <span id="active-theme"></span> Theme <span class="shortcut">⌘T</span></dd>
+					<dt></dt>
+					<dd data-pref="3">Application Preferences&hellip; <span class="shortcut">⌘,</span></dd>
+					<dd data-pref="4">Reset Application&hellip;</dd>
+				</dl>
+				
+				<div id="ua-display">
+					<p id="ua-info"></p>
+				</div>
+				
+				<div id="status-container">
+					<div id="status"></div>
+				</div>
+				
+				<button type="button" id="rotate" title="Rotate Device ⌘R">rotate device</button>
+				
+				<p id="dimensions">size: <span id="size"></span></p>
+				
+				<div id="set-width">
+					<input type="number" class="numeric" id="new-width" min="100" max="3000" tabindex="-1" />
+					<button type="button" id="update-width" tabindex="-1">width</button>
+				</div>
+				
+				<div id="set-height">
+					<input type="number" class="numeric" id="new-height" min="100" max="3000" tabindex="-1" />
+					<button type="button" id="update-height" tabindex="-1">height</button>
+				</div>
+				
+				<button type="button" id="plus">+</button>
+				<button type="button" id="minus">-</button>
+			
+			</div>
+		</footer>
+		
+		<div id="prefs-modal">
+			<div id="prefs-panel">
+				
+				<div class="fieldset clearfix">
+					
+					<h4>Recent Sites</h4>
+					<input type="number" class="numeric" id="recent-amount" min="5" max="25" tabindex="-1" />
+					<p>Adjust how many sites show in the Recent Sites menu</p>
+					<br />
+					<input type="checkbox" id="get-last" tabindex="-1" />
+					<p>Open last visited site on application launch.</p>
+					
+				</div>
+				
+				<div class="fieldset clearfix">
+					
+					<h4><img src="images/plus-prefs.png" alt="plus" width="9" height="10"> / <img src="images/minus-prefs.png" alt="minus" width="9" height="4"> increment</h4>
+					<input type="number" class="numeric" id="inc-step" min="1" max="100" tabindex="-1" />
+					
+					<p>Adjust the step amount of the +/- buttons</p>
+				
+				</div>
+				
+				<div class="fieldset cearfix">
+				
+					<h4>Show Manufacturer name</h4>
+					
+					<input type="checkbox" id="show-man" tabindex="-1" />
+					<p>Show or hide the manufacturer’s name on the device buttons.</p>
+				
+				</div>
+				
+				<div class="fieldset cearfix">
+				
+					<h4>Show User Agent</h4>
+					
+					<input type="checkbox" id="show-ua" tabindex="-1" />
+					<p>Show or hide the user agent string in the status bar.</p>
+				
+				</div>
+
+				<button type="button" id="prefs-close" tabindex="-1">Close</button>
+			
+			</div>
+		</div>
+		
+		<div id="reset-modal">
+			<div id="reset-panel">
+				
+				<div class="fieldset clearfix">
+					<p><b>WARNING!</b> Resetting the application restores it to its original state. You will loose all settings and custom devices.</p>
+					<button type="button" id="reset" tabindex="-1">Reset</button>
+					<button type="button" id="reset-cancel" tabindex="-1">Cancel</button>
+				</div>
+				
+			</div>
+		</div>
+		
+	</body>
+</html>

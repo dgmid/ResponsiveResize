@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
+    <dependencies>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="10117"/>
+        <capability name="box content view" minToolsVersion="7.0"/>
+    </dependencies>
+    <objects>
+        <customObject id="-2" userLabel="File's Owner" customClass="CustomUAController">
+            <connections>
+                <outlet property="uaTextField" destination="21" id="31"/>
+                <outlet property="window" destination="1" id="3"/>
+            </connections>
+        </customObject>
+        <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
+        <customObject id="-3" userLabel="Application"/>
+        <window title="Custom User Agent String" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" animationBehavior="alertPanel" id="1">
+            <windowStyleMask key="styleMask" titled="YES" closable="YES"/>
+            <rect key="contentRect" x="204" y="454" width="438" height="165"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="1280" height="777"/>
+            <view key="contentView" wantsLayer="YES" id="2">
+                <rect key="frame" x="0.0" y="0.0" width="438" height="165"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <box autoresizesSubviews="NO" borderType="line" translatesAutoresizingMaskIntoConstraints="NO" id="105">
+                        <rect key="frame" x="17" y="16" width="404" height="149"/>
+                        <view key="contentView" id="4Qn-4a-qdi">
+                            <rect key="frame" x="1" y="1" width="402" height="133"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            <subviews>
+                                <textField focusRingType="none" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="21">
+                                    <rect key="frame" x="18" y="43" width="366" height="80"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="80" id="112"/>
+                                    </constraints>
+                                    <textFieldCell key="cell" lineBreakMode="charWrapping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" focusRingType="none" drawsBackground="YES" id="22">
+                                        <font key="font" size="11" name="Menlo-Regular"/>
+                                        <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                    </textFieldCell>
+                                </textField>
+                                <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="5">
+                                    <rect key="frame" x="153" y="7" width="237" height="32"/>
+                                    <buttonCell key="cell" type="push" title="Apply Custom User Agent String" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="6">
+                                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                        <font key="font" metaFont="system"/>
+                                        <string key="keyEquivalent" base64-UTF8="YES">
+DQ
+</string>
+                                    </buttonCell>
+                                    <connections>
+                                        <action selector="submitUAString:" target="-2" id="32"/>
+                                    </connections>
+                                </button>
+                            </subviews>
+                        </view>
+                        <constraints>
+                            <constraint firstItem="21" firstAttribute="top" secondItem="105" secondAttribute="top" constant="25" id="DUU-HA-Uv7"/>
+                            <constraint firstItem="21" firstAttribute="leading" secondItem="105" secondAttribute="leading" constant="16" id="E1g-yo-puJ"/>
+                            <constraint firstAttribute="trailing" secondItem="21" secondAttribute="trailing" constant="16" id="Fuw-nb-RZF"/>
+                            <constraint firstAttribute="trailing" secondItem="5" secondAttribute="trailing" constant="16" id="aaK-mp-hGz"/>
+                            <constraint firstAttribute="bottom" secondItem="5" secondAttribute="bottom" constant="11" id="pWC-oQ-iPP"/>
+                        </constraints>
+                        <color key="borderColor" white="0.0" alpha="0.41999999999999998" colorSpace="calibratedWhite"/>
+                        <color key="fillColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </box>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="105" firstAttribute="top" secondItem="2" secondAttribute="top" id="107"/>
+                    <constraint firstItem="105" firstAttribute="leading" secondItem="2" secondAttribute="leading" constant="20" symbolic="YES" id="108"/>
+                    <constraint firstAttribute="bottom" secondItem="105" secondAttribute="bottom" constant="20" symbolic="YES" id="120"/>
+                    <constraint firstAttribute="trailing" secondItem="105" secondAttribute="trailing" constant="20" symbolic="YES" id="123"/>
+                </constraints>
+            </view>
+            <connections>
+                <outlet property="delegate" destination="-2" id="4"/>
+            </connections>
+        </window>
+        <customObject id="30" customClass="CustomUAController"/>
+    </objects>
+</document>
